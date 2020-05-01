@@ -14,6 +14,7 @@
 #include "GLRender.h"
 #include "Glextensions.h"
 #include "PGTexture.h"
+#include <algorithm>
 
 //**************************************************************
 // Defines
@@ -614,7 +615,7 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
 
     if ( OpenGL.Texture )
     {
-        maxoow = 1.0f / max( atmuoow, max( btmuoow, ctmuoow ) );
+        maxoow = 1.0f / std::max( atmuoow, std::max( btmuoow, ctmuoow ) );
 
         Textures->GetAspect( &hAspect, &wAspect );
 
