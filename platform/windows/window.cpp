@@ -128,6 +128,16 @@ bool InitialiseOpenGLWindow(FxU wnd, int x, int y, int width, int height)
 
     ramp_stored = GetDeviceGammaRamp( pDC, &old_ramp );
 
+    // try to enable vsync
+    void *swapInterval_ptr = (void*)wglGetProcAddress("wglSwapIntervalEXT");
+    if (swapInterval_ptr == NULL)
+    {
+        MessageBox( NULL, "wglGetProcAddress() failed:"
+            "returned NULL for wglSwapIntervalEXT", "Error", MB_OK );
+        exit( 1 );
+    }
+    ((BOOL(WINAPI*)(int))swapInterval_ptr)(1);
+
     ReleaseDC( NULL, pDC );
     return true;
 }
