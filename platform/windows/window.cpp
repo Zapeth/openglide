@@ -165,7 +165,8 @@ void FinaliseOpenGLWindow( void)
 
 void SetGamma(float value)
 {
-    struct
+    // disable this as long as gamma values are not restored afterwards (todo: add a config option for this)
+    /*struct
     {
         WORD red[256];
         WORD green[256];
@@ -183,7 +184,7 @@ void SetGamma(float value)
 
     BOOL res = SetDeviceGammaRamp( pDC, &ramp );
 
-    ReleaseDC( NULL, pDC );
+    ReleaseDC( NULL, pDC );*/
 }
 
 void RestoreGamma()
