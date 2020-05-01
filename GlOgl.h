@@ -81,6 +81,9 @@
 #define ZBUFFERNEAR              0.0f
 #define ZBUFFERFAR              -1.0f
 
+// HACK
+#define VIEWPORT_X_OFFSET   240 // centered for 1920x1080 (use Resolution=1440 in ini file)
+
 // Class declarations
 
 typedef void (*GLIDEERRORFUNCTION)( const char *string, FxBool fatal );

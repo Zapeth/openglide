@@ -113,6 +113,8 @@ grClipWindow( FxU32 minx, FxU32 miny, FxU32 maxx, FxU32 maxy )
     {
         OpenGL.Clipping = false;
     }
+    OpenGL.ClipMinX += VIEWPORT_X_OFFSET;
+    OpenGL.ClipMaxX += VIEWPORT_X_OFFSET;
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();

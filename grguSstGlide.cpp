@@ -302,9 +302,9 @@ grSstWinOpen(   FxU hwnd,
         return FXFALSE;
     }
 
-    OpenGL.ClipMinX = 0;
+    OpenGL.ClipMinX = 0+VIEWPORT_X_OFFSET;
     OpenGL.ClipMinY = 0;
-    OpenGL.ClipMaxX = OpenGL.WindowWidth;
+    OpenGL.ClipMaxX = OpenGL.WindowWidth+VIEWPORT_X_OFFSET;
     OpenGL.ClipMaxY = OpenGL.WindowHeight;
     OpenGL.WindowTotalPixels = (FxU32)( OpenGL.WindowWidth * OpenGL.WindowHeight );
 
@@ -568,7 +568,7 @@ grSstOrigin( GrOriginLocation_t  origin )
         glMatrixMode( GL_PROJECTION );
         glLoadIdentity( );
         glOrtho( 0, Glide.WindowWidth, 0, Glide.WindowHeight, OpenGL.ZNear, OpenGL.ZFar );
-        glViewport( 0, 0, OpenGL.WindowWidth, OpenGL.WindowHeight );
+        glViewport( 0+VIEWPORT_X_OFFSET, 0, OpenGL.WindowWidth, OpenGL.WindowHeight );
         glMatrixMode( GL_MODELVIEW );
         break;
 
@@ -576,7 +576,7 @@ grSstOrigin( GrOriginLocation_t  origin )
         glMatrixMode( GL_PROJECTION );
         glLoadIdentity( );
         glOrtho( 0, Glide.WindowWidth, Glide.WindowHeight, 0, OpenGL.ZNear, OpenGL.ZFar );
-        glViewport( 0, 0, OpenGL.WindowWidth, OpenGL.WindowHeight );
+        glViewport( 0+VIEWPORT_X_OFFSET, 0, OpenGL.WindowWidth, OpenGL.WindowHeight );
         glMatrixMode( GL_MODELVIEW );
         break;
     }
